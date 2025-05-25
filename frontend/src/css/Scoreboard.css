@@ -1,14 +1,15 @@
 /* Scoreboard Page */
 .scoreboard-page {
-  position: fixed;
+  position: relative; /* Changed from fixed to relative */
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  min-height: 100vh; /* Changed from height: 100% */
   background: linear-gradient(135deg, #0a2463, #3e92cc);
   color: white;
   display: flex;
   flex-direction: column;
+  overflow-y: auto; /* Added to enable scrolling */
 }
 
 .scoreboard-header {
@@ -38,7 +39,7 @@
 .scoreboard-container {
   display: flex;
   flex: 1;
-  height: 92vh;
+  min-height: 92vh; /* Changed from height to min-height */
 }
 
 .team-section {
@@ -76,6 +77,32 @@
   align-items: center;
   gap: 2vh;
   padding-bottom: 2vh;
+  width: 100%; /* Added to ensure full width */
+}
+
+.timeouts {
+  display: flex;
+  gap: 10px; /* Fixed gap instead of 1vw */
+  margin-top: 1vh;
+  justify-content: center; /* Added to center timeouts */
+  width: 100%; /* Added to ensure full width */
+}
+
+.timeout {
+  width: 45px; /* Fixed width instead of min(3rem, 8vw) */
+  height: 45px; /* Fixed height */
+  border: 2px solid #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 16px; /* Fixed font size */
+}
+
+.timeout.used {
+  background-color: #ff9f1c;
+  border-color: #ff9f1c;
 }
 
 .control-button {
@@ -89,6 +116,8 @@
   font-weight: bold;
   transition: all 0.3s ease;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 80%; /* Added to control width */
+  max-width: 250px; /* Added max-width */
 }
 
 .control-button.small {
@@ -113,7 +142,6 @@
 }
 
 .game-controls {
-  /* background-color: rgba(0, 0, 0, 0.2); */
   padding: 2vh;
   border-radius: 8px;
   width: 100%;
@@ -121,29 +149,6 @@
   flex-direction: column;
   align-items: center;
   gap: 10px;
-}
-
-.timeouts {
-  display: flex;
-  gap: 1vw;
-  margin-top: 1vh;
-}
-
-.timeout {
-  width: min(3rem, 8vw);
-  height: min(3rem, 8vw);
-  border: 2px solid #fff;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  font-size: min(1rem, 3vw);
-}
-
-.timeout.used {
-  background-color: #ff9f1c;
-  border-color: #ff9f1c;
 }
 
 .point-options {
@@ -180,45 +185,6 @@
   margin-top: 20px;
 }
 
-.set-history {
-  width: 100%;
-  margin-top: 20px;
-  border-collapse: collapse;
-  font-size: 0.9rem;
-}
-
-.set-history th, .set-history td {
-  padding: 8px;
-  text-align: center;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.set-history th {
-  background-color: rgba(0, 0, 0, 0.2);
-}
-
-@media (max-width: 768px) {
-  .scoreboard-container {
-    flex-direction: column;
-  }
-  
-  .scoreboard-divider {
-    width: 100%;
-    height: 0.5vh;
-    min-height: 120px;
-    min-width: auto;
-  }
-  
-  .score {
-    font-size: min(10rem, 20vw);
-  }
-  
-  .game-controls {
-    width: 90%;
-    margin: 0 auto;
-  }
-}
-
 .icon-button.trash {
   background-color: rgba(255, 87, 87, 0.3);
 }
@@ -230,92 +196,59 @@
   pointer-events: none;
 }
 
-/* Improved central controls for better mobile responsiveness */
-.game-controls {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 10px;
-}
-
 .control-row {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
   gap: 10px;
 }
 
-.point-options {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-
-.point-option {
-  background-color: rgba(255, 255, 255, 0.2);
-  border: 2px solid transparent;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-.point-option.selected {
-  border-color: #ff9f1c;
-  background-color: rgba(255, 159, 28, 0.3);
-}
-
-/* Improved mobile layout */
+/* Mobile responsive adjustments */
 @media (max-width: 768px) {
+  .scoreboard-container {
+    flex-direction: column;
+  }
+  
   .scoreboard-divider {
     width: 100%;
     height: auto;
-    min-height: 120px;
+    min-height: 100px;
     padding: 10px 0;
   }
   
-  .game-controls {
-    width: 90%;
-    margin: 0 auto;
+  .score {
+    font-size: min(10rem, 20vw);
+    padding: 10px 0;
   }
   
-  .control-row {
-    margin-bottom: 5px;
-    flex-direction: row;
+  .team-section {
+    min-height: 30vh;
+    padding: 10px;
   }
   
-  .point-options {
-    margin-bottom: 5px;
+  .team-name {
+    font-size: min(2.5rem, 7vw);
+    padding: 10px 0;
   }
   
-  .point-option {
-    width: 35px;
-    height: 35px;
+  .timeout {
+    width: 40px;
+    height: 40px;
     font-size: 14px;
   }
   
-  .icon-button {
-    width: 35px;
-    height: 35px;
+  .control-button {
+    padding: 10px 20px;
+    font-size: 16px;
   }
 }
 
 /* For very small screens */
 @media (max-width: 320px) {
-  .point-option {
-    width: 30px;
-    height: 30px;
+  .timeout {
+    width: 35px;
+    height: 35px;
     font-size: 12px;
   }
   
@@ -329,53 +262,3 @@
     height: 18px;
   }
 }
-
-/* Mobile Page */
-/* Scoreboard Responsive Fixes */
-.scoreboard-page {
-  position: relative; /* Change from fixed to relative */
-  min-height: 100vh; /* Use min-height instead of height */
-  height: auto; /* Allow content to determine height */
-  overflow-y: auto; /* Enable scrolling */
-}
-
-.scoreboard-container {
-  height: auto; /* Remove fixed height */
-  min-height: 80vh; /* Set minimum height */
-}
-
-/* Mobile-specific adjustments */
-@media (max-width: 768px) {
-  .scoreboard-page {
-    overflow-y: auto;
-  }
-  
-  .scoreboard-container {
-    flex-direction: column;
-    height: auto;
-  }
-  
-  .team-section {
-    min-height: 30vh; /* Ensure minimum height for team sections */
-  }
-  
-  .score {
-    font-size: min(8rem, 20vw); /* Smaller score font on mobile */
-    padding: 10px 0;
-  }
-  
-  .team-name {
-    font-size: min(2.5rem, 7vw);
-    padding: 10px 0;
-  }
-  
-  .controls {
-    padding: 10px 0;
-  }
-  
-  .control-button {
-    width: 100%;
-    max-width: 200px;
-  }
-}
-

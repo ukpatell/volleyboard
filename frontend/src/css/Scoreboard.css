@@ -1,0 +1,331 @@
+/* Scoreboard Page */
+.scoreboard-page {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #0a2463, #3e92cc);
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.scoreboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1vh 2vw;
+  background-color: rgba(0, 0, 0, 0.2);
+  height: 8vh;
+}
+
+.game-info {
+  display: flex;
+  align-items: center;
+}
+
+.elapsed-time {
+  font-size: min(1.5rem, 4vw);
+  font-family: monospace;
+  margin-right: 2vw;
+}
+
+.points-to-win {
+  font-size: min(1rem, 3vw);
+}
+
+.scoreboard-container {
+  display: flex;
+  flex: 1;
+  height: 92vh;
+}
+
+.team-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2vh 2vw;
+  transition: background-color 0.3s ease;
+}
+
+.team-section.serving {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.team-name {
+  font-size: min(4rem, 8vw);
+  text-align: center;
+  padding: 2vh 0;
+}
+
+.score {
+  font-size: min(20rem, 30vw);
+  font-weight: bold;
+  text-align: center;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2vh;
+  padding-bottom: 2vh;
+}
+
+.control-button {
+  background-color: #ff9f1c;
+  color: white;
+  border: none;
+  padding: 1.5vh 3vw;
+  font-size: min(1.5rem, 4vw);
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.control-button.small {
+  font-size: min(1rem, 3vw);
+  padding: 1vh 2vw;
+}
+
+.control-button:hover {
+  background-color: #ffbf69;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.scoreboard-divider {
+  width: 0.5vw;
+  background-color: rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 60px;
+}
+
+.game-controls {
+  /* background-color: rgba(0, 0, 0, 0.2); */
+  padding: 2vh;
+  border-radius: 8px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.timeouts {
+  display: flex;
+  gap: 1vw;
+  margin-top: 1vh;
+}
+
+.timeout {
+  width: min(3rem, 8vw);
+  height: min(3rem, 8vw);
+  border: 2px solid #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: min(1rem, 3vw);
+}
+
+.timeout.used {
+  background-color: #ff9f1c;
+  border-color: #ff9f1c;
+}
+
+.point-options {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.point-option {
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 2px solid transparent;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.point-option.selected {
+  border-color: #ff9f1c;
+  background-color: rgba(255, 159, 28, 0.3);
+}
+
+.set-result {
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.set-history {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.set-history th, .set-history td {
+  padding: 8px;
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.set-history th {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+  .scoreboard-container {
+    flex-direction: column;
+  }
+  
+  .scoreboard-divider {
+    width: 100%;
+    height: 0.5vh;
+    min-height: 120px;
+    min-width: auto;
+  }
+  
+  .score {
+    font-size: min(10rem, 20vw);
+  }
+  
+  .game-controls {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+
+.icon-button.trash {
+  background-color: rgba(255, 87, 87, 0.3);
+}
+
+/* Disabled button styling */
+.control-button.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Improved central controls for better mobile responsiveness */
+.game-controls {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
+}
+
+.control-row {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 10px;
+}
+
+.point-options {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.point-option {
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 2px solid transparent;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.point-option.selected {
+  border-color: #ff9f1c;
+  background-color: rgba(255, 159, 28, 0.3);
+}
+
+/* Improved mobile layout */
+@media (max-width: 768px) {
+  .scoreboard-divider {
+    width: 100%;
+    height: auto;
+    min-height: 120px;
+    padding: 10px 0;
+  }
+  
+  .game-controls {
+    width: 90%;
+    margin: 0 auto;
+  }
+  
+  .control-row {
+    margin-bottom: 5px;
+    flex-direction: row;
+  }
+  
+  .point-options {
+    margin-bottom: 5px;
+  }
+  
+  .point-option {
+    width: 35px;
+    height: 35px;
+    font-size: 14px;
+  }
+  
+  .icon-button {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+/* For very small screens */
+@media (max-width: 320px) {
+  .point-option {
+    width: 30px;
+    height: 30px;
+    font-size: 12px;
+  }
+  
+  .icon-button {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .icon-button img {
+    width: 18px;
+    height: 18px;
+  }
+}

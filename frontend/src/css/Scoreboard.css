@@ -329,3 +329,53 @@
     height: 18px;
   }
 }
+
+/* Mobile Page */
+/* Scoreboard Responsive Fixes */
+.scoreboard-page {
+  position: relative; /* Change from fixed to relative */
+  min-height: 100vh; /* Use min-height instead of height */
+  height: auto; /* Allow content to determine height */
+  overflow-y: auto; /* Enable scrolling */
+}
+
+.scoreboard-container {
+  height: auto; /* Remove fixed height */
+  min-height: 80vh; /* Set minimum height */
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 768px) {
+  .scoreboard-page {
+    overflow-y: auto;
+  }
+  
+  .scoreboard-container {
+    flex-direction: column;
+    height: auto;
+  }
+  
+  .team-section {
+    min-height: 30vh; /* Ensure minimum height for team sections */
+  }
+  
+  .score {
+    font-size: min(8rem, 20vw); /* Smaller score font on mobile */
+    padding: 10px 0;
+  }
+  
+  .team-name {
+    font-size: min(2.5rem, 7vw);
+    padding: 10px 0;
+  }
+  
+  .controls {
+    padding: 10px 0;
+  }
+  
+  .control-button {
+    width: 100%;
+    max-width: 200px;
+  }
+}
+

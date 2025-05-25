@@ -231,3 +231,75 @@ body {
     opacity: 1;
   }
 }
+
+/* Update these CSS rules in App.css */
+
+/* Landing Page */
+.landing-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh; /* Change from height: 100% to min-height: 100vh */
+  width: 100%;
+  padding: 20px; /* Use fixed padding instead of 5vw */
+  text-align: center;
+  background: linear-gradient(135deg, #0a2463, #3e92cc);
+  color: white;
+  overflow-y: auto; /* Allow scrolling if content is too tall */
+  position: relative; /* Change from fixed to relative */
+}
+
+.landing-content {
+  max-width: 1200px; /* Set a max-width */
+  width: 100%;
+  padding: 20px;
+}
+
+.features {
+  display: flex;
+  justify-content: center; /* Change from space-between to center */
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+  gap: 20px; /* Use gap instead of margins */
+}
+
+.feature {
+  flex: 1 1 250px;
+  max-width: 350px; /* Add max-width */
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  margin: 0; /* Remove margin and use gap in parent */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .landing-page h1 {
+    font-size: 3rem; /* Smaller font size on mobile */
+    margin-bottom: 1rem;
+  }
+  
+  .tagline {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .features {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .feature {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 15px;
+  }
+  
+  .primary-button {
+    width: 100%;
+    max-width: 300px;
+    padding: 12px 24px;
+  }
+}
+

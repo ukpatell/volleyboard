@@ -14,20 +14,12 @@ function HomePage() {
     <div className="landing-page">
       <div className="landing-content">
         <h1>VolleyBoard</h1>
-        <p className="tagline">Simple, Large-Display Volleyball Scoreboard</p>
+        {/* <p className="tagline"> </p> */}
 
         <div className="features">
           <div className="feature">
-            <h3>Big Display</h3>
-            <p>Designed for gymnasium visibility</p>
-          </div>
-          <div className="feature">
-            <h3>Customizable</h3>
-            <p>Configure points per set</p>
-          </div>
-          <div className="feature">
-            <h3>Easy Controls</h3>
-            <p>Simple touch interface</p>
+            <h3>User Interface</h3>
+            <p>Simple volleyball scoring application</p>
           </div>
         </div>
 

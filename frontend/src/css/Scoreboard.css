@@ -262,3 +262,39 @@
     height: 18px;
   }
 }
+
+/* time out controls */
+/* Update the controls class to use row layout instead of column */
+.controls {
+  display: flex;
+  flex-direction: row; /* Changed from column to row */
+  align-items: center;
+  justify-content: center; /* Center items horizontally */
+  gap: 2vh;
+  padding-bottom: 2vh;
+  flex-wrap: wrap; /* Allow wrapping on small screens */
+}
+
+/* Update timeouts to remove margin-top since they're now beside the button */
+.timeouts {
+  display: flex;
+  gap: 1vw;
+  margin-top: 0; /* Removed margin-top */
+}
+
+/* Make the control button take appropriate width */
+.control-button {
+  flex: 0 1 auto; /* Don't grow, can shrink, auto basis */
+  min-width: 120px; /* Ensure minimum width */
+}
+
+/* Mobile adjustments */
+@media (max-width: 480px) {
+  .controls {
+    flex-direction: column; /* Stack vertically on very small screens */
+  }
+  
+  .timeouts {
+    margin-top: 10px; /* Add some spacing when stacked */
+  }
+}
